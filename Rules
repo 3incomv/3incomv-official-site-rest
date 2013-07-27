@@ -17,13 +17,18 @@ compile '/stylesheet/' do
   # don’t filter or layout
 end
 
+compile '/images/*' do
+  # don't filter or layout
+end
+
 compile '*' do
-  if item.binary?
-    # don’t filter binary items
-  else
+  case item[:extension]
+  when 'haml'
+    filter :haml
+  when 'html'
     filter :erb
-    layout 'default'
   end
+  layout 'default' unless item[:layout] == 'none'
 end
 
 route '/stylesheet/' do
@@ -40,4 +45,4 @@ route '*' do
   end
 end
 
-layout '*', :erb
+layout '*', :haml, :filter => :html5

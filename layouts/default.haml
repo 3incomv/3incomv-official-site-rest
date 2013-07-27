@@ -1,0 +1,28 @@
+!!! 5
+%html{lang: 'ja_JP'}
+  %head
+    %title 山陰コンピュータ部
+    %link{rel: 'stylesheet', href: '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'}
+    %link{rel: 'stylesheet', href: 'style.css'}
+    %link{rel: 'stylesheet', href: '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'}
+    = render '_metadata'
+    = render '_analytics'
+  %body
+    %a{href: 'https://github.com/foo/bar'}
+      %img{style: 'position: absolute; top: 0; right: 0; border: 0;', src: 'https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png', alt: 'Fork me on GitHub'}
+
+    .container
+      = yield
+
+      %footer
+        %p Copyright &copy;2013 山陰コンピュータ部 All Rights Reserved.
+
+  #fb-root
+  :javascript
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=207878286043232";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
